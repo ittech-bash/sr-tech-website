@@ -37,3 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// 4. Fade-in Scroll Animation (Intersection Observer)
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.15, // Triggers when 15% of the element is visible
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    fadeElements.forEach(el => {
+        appearOnScroll.observe(el);
+    });
