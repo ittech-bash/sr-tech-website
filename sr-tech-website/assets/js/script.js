@@ -55,3 +55,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// 6. Contact Form to WhatsApp Redirect
+    const quoteForm = document.getElementById('quote-form');
+    
+    if (quoteForm) {
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stops the form from causing the 404 error page refresh
+            
+            // Grab the data the user typed in
+            const name = document.querySelector('input[name="name"]').value;
+            const phone = document.querySelector('input[name="phone"]').value;
+            const service = document.querySelector('select[name="service"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
+            
+            // Format the message for WhatsApp
+            const waText = `Hello S & R Tech Engineering, I would like to request a quote.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service Required:* ${service}\n*Project Details:* ${message}`;
+            
+            // Create the final WhatsApp URL (Using your specific number)
+            const waUrl = `https://wa.me/6591694931?text=${encodeURIComponent(waText)}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(waUrl, '_blank');
+        });
+    }
