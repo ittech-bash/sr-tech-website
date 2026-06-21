@@ -1,57 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
-    const menuToggle = document.getElementById('mobile-menu-toggle');
+// Wait for the entire website to load before running scripts
+document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. Mobile Navigation Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
     }
 
-    // 2. Auto-update Footer Year
+    // 2. Automatically Update Footer Year
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // 3. Form Submission Handling (Prevents default page reload for static demo)
-    const form = document.querySelector('.contact-form form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            // Remove the line below if you link this to Formspree
-            e.preventDefault(); 
-            
-            // Temporary feedback for static site
-            const btn = form.querySelector('button');
-            const originalText = btn.textContent;
-            btn.textContent = 'Message Sent!';
-            btn.style.backgroundColor = '#25D366'; // Green success color
-            
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-                form.reset();
-            }, 3000);
-        });
-    }
-});
-// 4. Fade-in Scroll Animation (Intersection Observer)
+    // 3. Fade-in Scroll Animations (Intersection Observer)
     const fadeElements = document.querySelectorAll('.fade-in');
-
+    
     const appearOptions = {
         threshold: 0.15, // Triggers when 15% of the element is visible
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 return;
             } else {
                 entry.target.classList.add('visible');
-                appearOnScroll.unobserve(entry.target);
+                observer.unobserve(entry.target); // Stop observing once it has faded in
             }
         });
     }, appearOptions);
@@ -59,3 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => {
         appearOnScroll.observe(el);
     });
+
+    // 4. Before & After Image Slider
+    const sliders = document.querySelectorAll('.ba-slider-container');
+    
+    sliders.forEach(slider => {
+        const range = slider.querySelector('.ba-range');
+        
+        if (range) {
+            // Update the CSS variable whenever the slider is dragged
+            range.addEventListener('input', (e) => {
+                slider.style.setProperty('--slider-pos', `${e.target.value}%`);
+            });
+        }
+    });
+
+});
