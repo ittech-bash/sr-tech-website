@@ -207,6 +207,7 @@ section { padding: 80px 0; }
         background: var(--white);
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         padding: 20px;
+        z-index: 1000;
     }
     .nav-links.active a { margin: 10px 0; }
     .hero h1 { font-size: 2rem; }
@@ -231,7 +232,7 @@ section { padding: 80px 0; }
 .service-card:nth-child(4) { transition-delay: 0.4s; }
 .gallery-grid img:nth-child(even) { transition-delay: 0.2s; }
 
-/* --- Before & After Slider --- */
+/* --- Before & After Slider & Carousel Base --- */
 .ba-slider-container {
     position: relative;
     width: 100%;
@@ -254,10 +255,7 @@ section { padding: 80px 0; }
     pointer-events: none;
 }
 
-.ba-after {
-    z-index: 1;
-}
-
+.ba-after { z-index: 1; }
 .ba-before {
     z-index: 2;
     clip-path: polygon(0 0, var(--slider-pos) 0, var(--slider-pos) 100%, 0 100%);
@@ -272,9 +270,11 @@ section { padding: 80px 0; }
     background: transparent;
     appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
     z-index: 4;
     cursor: ew-resize;
     margin: 0;
+    padding: 0;
 }
 
 .ba-range:focus { outline: none; }
@@ -285,6 +285,13 @@ section { padding: 80px 0; }
     height: 100vh;
     background: transparent;
     cursor: ew-resize;
+}
+.ba-range::-moz-range-thumb {
+    width: 40px;
+    height: 100vh;
+    background: transparent;
+    cursor: ew-resize;
+    border: none;
 }
 
 .ba-slider-line {
@@ -323,6 +330,109 @@ section { padding: 80px 0; }
     letter-spacing: -1px;
 }
 
+/* --- Carousel Layout Additions --- */
+.ba-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    gap: 15px;
+}
+
+.ba-slides-container {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.ba-slide {
+    display: none;
+    width: 100%;
+    animation: fadeInSlide 0.5s ease-in-out;
+}
+
+.ba-slide.active {
+    display: block;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.ba-carousel-wrapper .ba-slider-container {
+    margin: 0 auto;
+}
+
+.carousel-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: background 0.3s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* --- Before & After Text Labels --- */
+.ba-label {
+    position: absolute;
+    bottom: 20px;
+    padding: 6px 14px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.ba-label-before {
+    left: 20px;
+}
+
+.ba-label-after {
+    right: 20px;
+}
+
+/* Responsive Fixes for Sliders and Labels */
 @media (max-width: 768px) {
     .ba-slider-container { height: 300px; }
+    
+    .ba-carousel-wrapper {
+        position: relative;
+        gap: 0;
+    }
+    .carousel-btn {
+        position: absolute;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .prev-btn { left: -10px; }
+    .next-btn { right: -10px; }
+    
+    .ba-label {
+        font-size: 12px;
+        padding: 4px 10px;
+        bottom: 10px;
+    }
+    .ba-label-before { left: 10px; }
+    .ba-label-after { right: 10px; }
 }
