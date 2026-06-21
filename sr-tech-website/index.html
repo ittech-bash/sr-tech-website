@@ -6,10 +6,12 @@
     <title>S & R Tech Engineering | Construction & Renovation Singapore</title>
     <meta name="description" content="Reliable construction, renovation, and engineering services in Singapore. Painting, tiling, hacking, and flooring. Get a free quote today.">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Header / Nav -->
     <header class="header" id="header">
         <div class="container nav-container">
             <div class="logo">
@@ -28,6 +30,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>Reliable Construction, Renovation & Engineering in Singapore</h1>
@@ -39,6 +42,7 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-header fade-in">
@@ -51,6 +55,7 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-header fade-in">
@@ -135,6 +140,32 @@
         </div>
     </section>
 
+    <!-- Featured Transformation (Before & After) -->
+    <section class="transformation" style="background: var(--light-bg); padding-bottom: 0;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Featured Transformations</h2>
+                <p>Slide to see the difference our experts can make.</p>
+            </div>
+            
+            <div class="ba-slider-container fade-in">
+                <!-- 1. The After Image (Background) -->
+                <img src="assets/images/gallery/after1.jpg" alt="After Renovation" class="ba-img ba-after" onerror="this.src='https://via.placeholder.com/800x450?text=After+Image'">
+                
+                <!-- 2. The Before Image (Clipped on top) -->
+                <img src="assets/images/gallery/before1.jpg" alt="Before Renovation" class="ba-img ba-before" onerror="this.src='https://via.placeholder.com/800x450?text=Before+Image'">
+                
+                <!-- 3. The Interactive Slider -->
+                <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Percentage of before photo shown">
+                
+                <!-- 4. The Visual Handle -->
+                <div class="ba-slider-line"></div>
+                <div class="ba-slider-button"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <div class="section-header fade-in">
@@ -142,6 +173,7 @@
                 <p>A glimpse into our recent workmanship across all services</p>
             </div>
             
+            <!-- Painting Works Portfolio -->
             <h3 style="margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Painting Works</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/painting1.jpg" alt="Painting Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Painting+1'">
@@ -152,6 +184,7 @@
                 <img src="assets/images/gallery/painting6.jpg" alt="Painting Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Painting+6'">
             </div>
 
+            <!-- Plastering Works Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Plastering Works</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/plastering1.jpg" alt="Plastering Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Plastering+1'">
@@ -162,6 +195,7 @@
                 <img src="assets/images/gallery/plastering6.jpg" alt="Plastering Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Plastering+6'">
             </div>
 
+            <!-- Tiling Works Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Tiling Works</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/tiling1.jpg" alt="Tiling Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Tiling+1'">
@@ -172,6 +206,7 @@
                 <img src="assets/images/gallery/tiling6.jpg" alt="Tiling Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Tiling+6'">
             </div>
 
+            <!-- Vinyl Flooring Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Vinyl Flooring</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/vinyl1.jpg" alt="Vinyl Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Vinyl+1'">
@@ -182,6 +217,7 @@
                 <img src="assets/images/gallery/vinyl6.jpg" alt="Vinyl Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Vinyl+6'">
             </div>
 
+            <!-- Hacking Works Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Hacking Floor & Wall</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/hacking1.jpg" alt="Hacking Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Hacking+1'">
@@ -192,6 +228,7 @@
                 <img src="assets/images/gallery/hacking6.jpg" alt="Hacking Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Hacking+6'">
             </div>
 
+            <!-- Marble Polishing Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Marble Polishing</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/marble1.jpg" alt="Marble Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Marble+1'">
@@ -202,6 +239,7 @@
                 <img src="assets/images/gallery/marble6.jpg" alt="Marble Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Marble+6'">
             </div>
 
+            <!-- Metal Works Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Metal Structure / Gate</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/metal1.jpg" alt="Metal Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Metal+1'">
@@ -212,6 +250,7 @@
                 <img src="assets/images/gallery/metal6.jpg" alt="Metal Project 6" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Metal+6'">
             </div>
 
+            <!-- Parquet Flooring Portfolio -->
             <h3 style="margin-top: 50px; margin-bottom: 20px; color: var(--primary-color);" class="fade-in">Parquet Timber Flooring</h3>
             <div class="gallery-grid">
                 <img src="assets/images/gallery/parquet1.jpg" alt="Parquet Project 1" class="fade-in" onerror="this.src='https://via.placeholder.com/300x300?text=Parquet+1'">
@@ -225,6 +264,7 @@
         </div>
     </section>
 
+    <!-- Contact & Form Section -->
     <section class="contact" id="contact">
         <div class="container fade-in">
             <div class="contact-wrapper">
@@ -262,13 +302,16 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; <span id="year"></span> S & R Tech Engineering Pte Ltd. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Sticky WhatsApp Button -->
     <a href="https://wa.me/6591694931?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20your%20construction%20/%20renovation%20services." class="sticky-whatsapp" target="_blank" rel="noopener">
+        <!-- SVG WhatsApp Icon -->
         <svg viewBox="0 0 32 32" width="32" height="32" fill="white"><path d="M16 2a13 13 0 0 0-11 20l-2 7 7-2a13 13 0 1 0 6-25zm0 24c-2 0-4-1-6-2l-1-1-4 1 1-4-1-1a11 11 0 1 1 11 7zm6-9c0-.1 0-.2-.1-.3l-3-1c-.1 0-.3 0-.4.1l-1 2c-.1.1-.3.1-.5 0a9 9 0 0 1-4-4c-.1-.2-.1-.4 0-.5l1-1c.1-.1.2-.3.2-.4l-1-3c-.1-.1-.3-.2-.4-.2h-1c-.2 0-.6.1-.8.3-.3.3-.8 1-.8 2 0 1 .8 3 1 3 1 2 3 5 6 6 1 1 3 2 4 2 .8 0 2-.3 2-1v-1c0-.2-.1-.3-.3-.4z"/></svg>
     </a>
 
