@@ -78,3 +78,26 @@ document.addEventListener("DOMContentLoaded", () => {
             window.open(waUrl, '_blank');
         });
     }
+// 6. Smart Gallery Image Loader (.jpg, .jpeg, .png fallback)
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+    
+    galleryImages.forEach(img => {
+        // The list of extensions the website will automatically try
+        const extensions = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'];
+        let currentAttempt = 0;
+        
+        // Find the base name of the file (e.g., "painting1")
+        const baseUrl = img.src.substring(0, img.src.lastIndexOf('.'));
+        
+        img.onerror = function() {
+            currentAttempt++;
+            
+            // If it fails, try the next file extension in the list
+            if (currentAttempt < extensions.length) {
+                this.src = baseUrl + extensions[currentAttempt];
+            } else {
+                // If ALL extensions fail (the image truly doesn't exist), hide it
+                this.style.display = 'none';
+            }
+        };
+    });
